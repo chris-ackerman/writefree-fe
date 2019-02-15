@@ -1,0 +1,205 @@
+@font-face {
+    font-family: brown-bold;
+    src: url(../fonts/Brown/Brown-Bold.otf);
+}
+
+@font-face {
+    font-family: brown-regular;
+    src: url(../fonts/Brown/Brown-Regular.otf);
+}
+
+
+.RichEditor-root {
+    background: #fff;
+    border: none;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+
+}
+
+.RichEditor-editor {
+    border-top: 1px solid #ddd;
+    cursor: text;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.RichEditor-editor .public-DraftEditorPlaceholder-root,
+.RichEditor-editor .public-DraftEditor-content {
+    margin: 0 -15px -15px;
+    padding: 15px;
+}
+
+.RichEditor-editor .public-DraftEditor-content {
+    min-height: 100px;
+}
+
+.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+    display: none;
+}
+
+.RichEditor-editor .RichEditor-blockquote {
+    border-left: 5px solid #eee;
+    color: #666;
+    font-family: 'Hoefler Text', 'Georgia', serif;
+    font-style: italic;
+    margin: 16px 0;
+    padding: 10px 20px;
+}
+
+.RichEditor-editor .public-DraftStyleDefault-pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
+    font-size: 16px;
+    padding: 20px;
+}
+
+.RichEditor-controls {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+.RichEditor-styleButton {
+    color: #999;
+    cursor: pointer;
+    margin-right: 16px;
+    padding: 2px 0;
+    display: inline-block;
+}
+
+.RichEditor-activeButton {
+    color: #5890ff;
+}
+
+.ant-tabs-bar{
+    margin-bottom: 0px;
+}
+
+.rdw-editor-main{
+    margin-top: 32px;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 700px;
+    border-radius: 0px !important;
+    padding: 10px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+    border: 1px solid #cccccc;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.add-title{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: white;
+}
+
+.enter-title-here{
+    height: 30px;
+    width: 350px;
+    border-radius: 3px !important;
+    border: none;
+}
+
+.enter-title-here::placeholder {
+     font-family: brown-regular !important;
+     font-size: 21px !important;
+     color: #aaaaaa;
+     font-style: italic;
+ }
+
+.enter-category-here{
+    margin-left: 8px !important;
+    height: 30px;
+    width: 180px;
+    border-radius: 3px !important;
+    border: none;
+}
+
+.enter-category-here::placeholder {
+    font-family: brown-regular !important;
+    font-size: 14px !important;
+    color: #aaaaaa;
+}
+
+.tab-bar{
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: white;
+}
+
+.convert-to-pdf{
+    font-family: brown-bold;
+    font-size: 14px;
+    height: 30px;
+    width: 140px;
+    background-color: #466fb5;
+    border-radius: 15px !important;
+    color: white;
+    float: right;
+}
+
+/*.enter-category-here{*/
+    /*margin-left: 8px !important;*/
+    /*height: 20px;*/
+    /*width: 180px;*/
+    /*border-radius: 3px !important;*/
+    /*background-color: #466fb5;*/
+    /*font-family: brown-bold !important;*/
+    /*font-size: 14px !important;*/
+    /*color: white;*/
+/*}*/
+
+/*!*.enter-category-here::placeholder {*!*/
+    /*!*color: white;*!*/
+/*!*}*!*/
+
+.note-category-icon{
+    padding-left: 30px;
+}
+
+.rdw-editor-toolbar{
+    padding-right: 60px;
+    padding-left: 60px;
+    border: none;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+}
+
+.tab-buttons{
+    font-family: brown-bold;
+    font-size: 14px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    max-height: 100vh;
+}
+
+.card {
+    margin: 10px;
+    max-width: 23vw;
+}
+
+.DraftEditor-editorContainer{
+    word-break: break-all;
+    word-wrap: break-spaces;
+    word-wrap: break-word;
+}
+.DraftEditor-content{
+    word-break: break-all;
+    word-wrap: break-spaces;
+    word-wrap: break-word;
+}

@@ -1,0 +1,27 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-bottom:0.5px solid #cccccc;
+    background: white;
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ant-modal-content {
+	height: 600px !important;
+	width: 600px !important;
+}
+
+.ant-modal-footer {
+	display: none !important;
+}
+
+.ant-btn {
+    height: 30px;
+    width: 140px;
+    background-color: #466fb5 !important;
+    border-radius: 15px !important;
+}
