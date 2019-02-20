@@ -46,7 +46,7 @@ class Note extends React.Component {
       const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };
     const fetchNote = {
       method: 'GET',
-      url: `http://127.0.0.1:5000/fetch-note/${String(noteID)}`,
+      url: `https://writefree-backend.herokuapp.com/fetch-note/${String(noteID)}`,
       qs: { noteID },
       headers: headers,
     };
@@ -100,7 +100,7 @@ class Note extends React.Component {
         const obj = {title, category, noteID, noteContent: convertedNoteContent}
         var saveNote = {
             method: 'POST',
-            url: 'http://127.0.0.1:5000/save-note',
+            url: 'https://writefree-backend.herokuapp.com/save-note',
             body: JSON.stringify(obj),
             headers: headers,
         };
@@ -259,7 +259,7 @@ function setDocumentLineSpacing(lineSpacing) {
 function hyphenate(child, noteID) {
     const postHyphenateChild = {
         method: 'POST',
-        url: 'http://127.0.0.1:5000/change-hyphenation',
+        url: 'https://writefree-backend.herokuapp.com/change-hyphenation',
         body: JSON.stringify({ noteID: noteID, isHyphenated: child }),
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };
@@ -332,7 +332,7 @@ function hyphenate(child, noteID) {
 function changeNoteColor(noteID, color) {
     var changeNoteColor = {
         method: 'POST',
-        url: 'http://127.0.0.1:5000/change-note-color',
+        url: 'https://writefree-backend.herokuapp.com/change-note-color',
         qs: {noteID, noteColor: color.hex},
         headers: {'Content-Type': 'application/x-www-form-urlencoded' }
     };

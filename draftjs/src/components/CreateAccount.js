@@ -27,7 +27,7 @@ class CreateAccount extends React.Component {
       }
     const postCreateAnAccountInformation = {
       method: 'POST',
-      url: 'http://127.0.0.1:5000/create-account',
+      url: 'https://writefree-backend.herokuapp.com/create-account',
       qs: { email, fullName, password },
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };
@@ -61,7 +61,7 @@ class CreateAccount extends React.Component {
     const name = (response.profileObj.name).toString();
     const postLoginInformation = {
       method: 'POST',
-      url: 'http://127.0.0.1:5000/create-account-google',
+      url: 'https://writefree-backend.herokuapp.com/create-account-google',
       qs: { email, google_id: googleID, name },
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };

@@ -17,7 +17,7 @@ class Walkthrough extends React.Component {
   async removeTutorial(email) {
     const removeTutorial = {
       method: 'POST',
-      url: 'http://127.0.0.1:5000/remove-tutorial',
+      url: 'https://writefree-backend.herokuapp.com/remove-tutorial',
       qs: { email },
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };

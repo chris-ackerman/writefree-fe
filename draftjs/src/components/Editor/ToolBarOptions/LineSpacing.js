@@ -9,7 +9,7 @@ const LineSpacingOption = (props) => {
         const obj = {'noteID': props.noteID, 'lineSpacing': value}
         const changeLineSpacing = {
             method: 'POST',
-            url: 'http://127.0.0.1:5000/change-line-spacing',
+            url: 'https://writefree-backend.herokuapp.com/change-line-spacing',
             body: JSON.stringify(obj),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         };

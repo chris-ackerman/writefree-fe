@@ -10,7 +10,7 @@ const WordSpacingOption = (props) => {
         const obj = {'noteID': props.noteID, 'wordSpacing': value}
         const changeWordSpacing = {
             method: 'POST',
-            url: 'http://127.0.0.1:5000/change-word-spacing',
+            url: 'https://writefree-backend.herokuapp.com/change-word-spacing',
             body: JSON.stringify(obj),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         };
