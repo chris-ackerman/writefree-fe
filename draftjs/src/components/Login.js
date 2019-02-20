@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import GoogleButton from 'react-google-button';
 import axios from 'axios';
-import { Input, Button, Card } from 'antd';
+import { Input, Button, Card, Tooltip } from 'antd';
 import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 import Alert from 'react-s-alert';
@@ -97,7 +97,7 @@ class Login extends React.Component {
               <p className={"forgot-password"}>Forgot Password?</p>
               <Button type="primary" onClick={() => this.login(this.state.email, this.state.password)}>Sign In</Button>
               <Card style={{"background":"none", "border":"0px solid black"}}>
-                  <p>Dont have an account? <a onClick={() => this.props.history.push("/create-account")}> Sign Up </a> </p>
+                  <p>Dont have an account? <a onClick={() => this.props.history.push("/create-account")}> Sign Up </a></p>
               </Card>
               <GoogleLogin
                   clientId="402919311024-18n9b01dptgeg774297fp4u9ir18sb6g.apps.googleusercontent.com"

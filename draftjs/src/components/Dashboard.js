@@ -224,6 +224,7 @@ class Dashboard extends React.Component {
                     <Walkthrough runTutorial={this.state.credentials.runTutorial} />
                     <Search
                         onChange={searchContent => this.searchNotes(searchContent.target.value)}
+                        className = {"formatted"}
                         style={{ width: 200, marginRight: 20 }}
                     />
                     <Dropdown overlay={this.state.menu}>

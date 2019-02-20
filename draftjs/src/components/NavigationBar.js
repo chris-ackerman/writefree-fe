@@ -9,6 +9,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Dropdown, Menu, Modal, Button} from "antd";
 import {backendURL} from "../dependency";
 import { ReactTypeformEmbed } from 'react-typeform-embed';
+import logo from '../images/logo.png';
 
 class NavigationBar extends React.Component {
     constructor(props) {
@@ -82,7 +83,7 @@ class NavigationBar extends React.Component {
     render() {
         return (
             <div className={"top"}>
-                <img onClick={() => this.goToDashBoard()} src="https://github.com/ChiragAswani/Husky-Test/blob/master/logo.png?raw=true" height="20px"/>
+                <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
                 <Button type="primary" onClick={this.showSubmitFeedbackModal}>
                   Submit Feedback
                 </Button>

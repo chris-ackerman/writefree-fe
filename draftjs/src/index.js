@@ -12,6 +12,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {faUser} from '@fortawesome/free-solid-svg-icons'
 import Error404 from "./components/Error404";
 import Landing from "./components/Landing";
+import ReactGA from "../node_modules/react-ga";
 library.add( faUser)
 
 ReactDOM.render(

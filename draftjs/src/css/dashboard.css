@@ -28,6 +28,10 @@
     padding-bottom: 20px;
 }
 
+.formatted {
+    margin-right: 20px;
+}
+
 .middle{
     display: flex;
     height: 50px;

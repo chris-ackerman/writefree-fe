@@ -8,6 +8,7 @@ import '../css/navigation-bar.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Dropdown, Menu, Modal, Button} from "antd";
 import { ReactTypeformEmbed } from 'react-typeform-embed';
+import logo from '../images/logo.png';
 
 class LandingNavigation extends React.Component {
     constructor(props) {
@@ -77,7 +78,7 @@ class LandingNavigation extends React.Component {
     render() {
         return (
             <div className={"top"}>
-                <img onClick={() => this.goToDashBoard()} src="https://github.com/ChiragAswani/Husky-Test/blob/master/logo.png?raw=true" height="20px"/>
+                <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
                 <Button type="primary" className={"styledButton"} onClick={this.showModal}>
                   Submit Feedback
                 </Button>

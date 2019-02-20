@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import request from 'request';
-import { Input, Button, Card } from 'antd';
+import { Input, Button, Card, Tooltip } from 'antd';
 import 'antd/dist/antd.css';
 import { withRouter } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
@@ -93,6 +93,7 @@ class CreateAccount extends React.Component {
         <Alert timeout={3000} />
         <div className={"create-account-container"} style ={ { backgroundImage: "url("+book+")" }}>
           <div className={"create-account"}>
+            <p>* We will never use your email or information unless we are explicitly given permission. This account is for your use only.</p>
             <Card
           title="Create An Account"
           style={{ "width": "400px", "background":"none", "border":"0px solid black"}}
