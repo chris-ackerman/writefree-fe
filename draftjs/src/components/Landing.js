@@ -158,12 +158,15 @@ class Landing extends React.Component {
 		    	</Col>
 		    </Row>
 		    <Row className={["centered-text"]}>
-		    	<Col span={24}>
+		    	<Col span={24} className={["footer"]}>
 		    		<ColoredLine color="grey"/>
-		    		<h3> Sign up for our beta test to receive up-to-date information about WriteFree!</h3>
-		    		<MailchimpSubscribe url={signup_url}/>
-
-		    		<h3>WriteFree is an <a target="_blank" href="https://instituteofethics.org"><b>Institute of Ethics</b></a> initiative!</h3>
+		    		<Col xs={{ span: 24}} lg={{ span: 14}}>
+						<h3> Sign up for our beta test to receive up-to-date information about WriteFree!</h3>
+		    			<MailchimpSubscribe url={signup_url}/>
+					</Col>
+			    	<Col xs={{ span: 24}} lg={{ span: 10}}>
+				    	<h3>WriteFree is an <a target="_blank" href="https://instituteofethics.org"><b>Institute of Ethics</b></a> initiative!</h3>
+				    </Col>
 		    	</Col>
 		    </Row>
 	      	

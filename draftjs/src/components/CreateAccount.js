@@ -105,7 +105,7 @@ class CreateAccount extends React.Component {
           <Card style={{"background":"none", "border":"0px solid black"}}>
             <p>Have an account? <a onClick={() => this.props.history.push("/login")}> Login </a> </p>
           </Card>
-          <GoogleLogin
+          {/* <GoogleLogin
             clientId="402919311024-18n9b01dptgeg774297fp4u9ir18sb6g.apps.googleusercontent.com"
             onSuccess={succ => this.googleSignUp(succ)}
             onFailure={fail => this.googleSignUp(fail)}
@@ -117,7 +117,7 @@ class CreateAccount extends React.Component {
             }}
           >
             <GoogleButton label="Sign up With Google" />
-          </GoogleLogin>
+          </GoogleLogin> */}
         </Card>
           </div>
         </div>

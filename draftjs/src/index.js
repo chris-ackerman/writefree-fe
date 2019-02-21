@@ -15,6 +15,13 @@ import Landing from "./components/Landing";
 import ReactGA from "../node_modules/react-ga";
 library.add( faUser)
 
+function initializeReactGA() {
+    ReactGA.initialize('UA-134813376-1');
+    ReactGA.pageview('/');
+}
+
+initializeReactGA();
+
 ReactDOM.render(
     <BrowserRouter >
         <Switch>
