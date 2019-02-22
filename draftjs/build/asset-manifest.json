@@ -1,10 +1,10 @@
 {
   "main.css": "/static/css/main.5c9da056.chunk.css",
-  "main.js": "/static/js/main.29e1574a.chunk.js",
-  "main.js.map": "/static/js/main.29e1574a.chunk.js.map",
+  "main.js": "/static/js/main.de273cb9.chunk.js",
+  "main.js.map": "/static/js/main.de273cb9.chunk.js.map",
   "static/css/1.0a5ed109.chunk.css": "/static/css/1.0a5ed109.chunk.css",
-  "static/js/1.bc4cb3ff.chunk.js": "/static/js/1.bc4cb3ff.chunk.js",
-  "static/js/1.bc4cb3ff.chunk.js.map": "/static/js/1.bc4cb3ff.chunk.js.map",
+  "static/js/1.ede49890.chunk.js": "/static/js/1.ede49890.chunk.js",
+  "static/js/1.ede49890.chunk.js.map": "/static/js/1.ede49890.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
   "static/media/book_landing.png": "/static/media/book_landing.2a36cdcb.png",
@@ -18,9 +18,9 @@
   "static/media/layout.png": "/static/media/layout.984d1c4c.png",
   "static/media/test.gif": "/static/media/test.7352f02e.gif",
   "static/media/test_2.gif": "/static/media/test_2.c9c52c15.gif",
-  "static/css/main.5c9da056.chunk.css.map": "/static/css/main.5c9da056.chunk.css.map",
   "static/css/1.0a5ed109.chunk.css.map": "/static/css/1.0a5ed109.chunk.css.map",
+  "static/css/main.5c9da056.chunk.css.map": "/static/css/main.5c9da056.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.4a1b418bca06ecca4cbec1ea98beb721.js": "/precache-manifest.4a1b418bca06ecca4cbec1ea98beb721.js",
+  "precache-manifest.e44760d9cfc4e9e058159417a48a12b0.js": "/precache-manifest.e44760d9cfc4e9e058159417a48a12b0.js",
   "service-worker.js": "/service-worker.js"
 }
