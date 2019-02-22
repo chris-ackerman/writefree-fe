@@ -16,10 +16,17 @@ import SpeechOption from "./ToolBarOptions/TextToSpeech";
 import WordSpacingOption from "./ToolBarOptions/WordSpacing";
 import LineSpacingOption from "./ToolBarOptions/LineSpacing";
 import {stateToHTML} from 'draft-js-export-html';
+import ReactGA from 'react-ga';
+
+function changeGaPage(path) {
+    ReactGA.pageview(path);
+    console.log("changed path to: ", path);
+}
 
 class Note extends React.Component {
   constructor(props) {
     super(props);
+    changeGaPage(props.location.pathname);
     this.state = {
       editorState: EditorState.createEmpty(),
       noteCategory: undefined,

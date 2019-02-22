@@ -13,8 +13,14 @@ import '../css/login.css';
 import features from '../images/features.png';
 import book from '../images/book_landing.png';
 import LandingNavigation from './LandingNavigation';
+import ReactGA from 'react-ga';
 
 import {backendURL} from "../dependency";
+
+function changeGaPage(path) {
+    ReactGA.pageview(path);
+    console.log("changed path to: ", path);
+}
 
 
 class Login extends React.Component {
@@ -24,6 +30,8 @@ class Login extends React.Component {
       email: "",
       password: "",
     };
+    console.log(props.location.pathname);
+    changeGaPage(props.location.pathname);
   }
 
   login(email, password) {

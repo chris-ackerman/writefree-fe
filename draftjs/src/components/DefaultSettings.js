@@ -8,10 +8,17 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import axios from "axios";
 import {backendURL} from "../dependency";
+import ReactGA from 'react-ga';
+
+function changeGaPage(path) {
+    ReactGA.pageview(path);
+    console.log("changed path to: ", path);
+}
 
 class DefaultSettings extends React.Component {
   constructor(props) {
     super(props);
+    changeGaPage(props.location.pathname);
     this.state = {
       noteColor: '#f0E5EB',
     };

@@ -64,6 +64,14 @@ class Landing extends React.Component {
 			'Word-hyphenation',
 		];
 
+		const buglist = [
+			'HTML/CSS gets inconsistent when you resize the window',
+			'CovertToPDF doesn\'t work pefectly: it only works with background color, bold and italic',
+			'TextToSpeech doesn\'t work consistently: it does not read the proper text sometimes. And it only works in Chrome',
+			'Word-hyphenation functionality is disabled because we are not able to set the React state properly. But the algorithm is properly implemented and can be used in the future development',
+			'Trash can icon on the notecard does not work',
+			'Text does not wrap when typing a note. It just overlaps text on eachother',
+		];
 
 
 		function onChange(a, b, c) {
@@ -86,12 +94,14 @@ class Landing extends React.Component {
 	      	<Row className={["centered-text"]}>
 		    	<Col span={24}>
 		    		<Card className={["landing-card", "centered-text", "centered", "shadow", "pushed"]} style={{"margin-top":"20px"}}>
-		    			<p>This application is designed to continually innovate, constantly adding new features and 
-		    			functionalities that make taking notes easier for people with dyslexia. We have aggregated <b>simple</b> and 
-		    			<b> helpful</b> features in an effort to make an accessible and impactful application</p>
-		    			<Col span={12}>
+		    			<h3>This application is designed to continually innovate, constantly adding new features and 
+		    			functionalities that make taking notes easier for people with dyslexia. We have aggregated <i>simple</i> and 
+		    			<i> helpful</i> features in an effort to make an accessible and impactful application</h3>
+		    			<Col span={12} style={{"margin-bottom":"20px"}}>
 		    				<Tooltip title="We will never use your email or information unless we are explicitly given permission. This account is for your use only."><Button style={{"height": "50px", "width": "200px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
 		    			</Col>
+		    			<p>* We are currently at a beta version of the app, meaning we are testing out the features and functionality so 
+		    			that our final product will be as helpful and stable as possible!</p>
 		    		</Card>
 		    	</Col>
 		    </Row>
@@ -122,7 +132,14 @@ class Landing extends React.Component {
 					    />
 			    	</Card>
 			    </Col>
+
 		    </Row>
+		    <Row className={["centered"]}>
+		    	<Col span={24} style={{"margin-top":"50px", "margin-bottom":"50px"}}>
+					<h3> Sign up for our beta test to receive up-to-date information about WriteFree!</h3>
+	    			<MailchimpSubscribe url={signup_url}/>
+				</Col>
+			</Row>
 		    <Row className={["centered"]}>
 		    	<Col span={24}>
 		    		<h1 style={{"text-align":"center"}}>Feature Examples</h1>
@@ -145,6 +162,15 @@ class Landing extends React.Component {
 		        	</Tabs>
 		    	</Col>
 			</Row>
+			<Row>
+		    	<Col span={18} offset={3}>
+		    		<p className={["header"]} style={{"text-align":"center"}}>Known Bugs</p>
+		    		<List
+				      dataSource={buglist}
+				      renderItem={item => (<List.Item>{item}</List.Item>)}
+				    />
+		    	</Col>
+		    </Row>
 		    <Row className={["centered-text"]}>
 		    	<Col span={24}>
 		    		<Col span={12} offset={6}>

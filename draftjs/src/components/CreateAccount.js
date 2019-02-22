@@ -11,10 +11,17 @@ import '../css/create-account.css';
 import { handleAccountError } from '../defaults/constants';
 import book from '../images/book_landing.png';
 import LandingNavigation from './LandingNavigation';
+import ReactGA from 'react-ga';
+
+function changeGaPage(path) {
+    ReactGA.pageview(path);
+    console.log("changed path to: ", path);
+}
 
 class CreateAccount extends React.Component {
   constructor(props) {
     super(props);
+    changeGaPage(props.location.pathname);
     this.state = {
       email: "",
       fullName: "",

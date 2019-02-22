@@ -11,12 +11,19 @@ import NavigationBar from './NavigationBar';
 import '../css/dashboard.css';
 import { mergeSort } from '../defaults/constants';
 import {backendURL} from "../dependency";
+import ReactGA from 'react-ga';
+
+function changeGaPage(path) {
+    ReactGA.pageview(path);
+    console.log("changed path to: ", path);
+}
 
 const Search = Input.Search;
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    changeGaPage(props.location.pathname);
     this.state = {
 
       notes: null,
