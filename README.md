@@ -1,4 +1,8 @@
 # WriteFree-FrontEnd
+## Structure
+1. ``` master ```
+3. ``` testing ```
+
 ## Installation
 1. ``` cd draftjs/```
 2. ``` npm install```
