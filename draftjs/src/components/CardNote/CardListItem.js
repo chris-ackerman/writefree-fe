@@ -49,6 +49,8 @@ class CardListItem extends React.Component {
     * Spring 2019
     **/
     deleteNote(email, noteID) {
+        // update the front end
+        this.props.handleDelete(this.state.note);
         const accessToken = localStorage.getItem('access_token');
         const AuthStr = 'Bearer '.concat(accessToken);
         const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };

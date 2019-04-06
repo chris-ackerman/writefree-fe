@@ -163,6 +163,7 @@ class Dashboard extends React.Component {
   }
 
   switchView(child) {
+    // console.log(this.state.notes);
     if (child) {
       this.setState({ isTableView: true });
     } else {
@@ -214,7 +215,11 @@ class Dashboard extends React.Component {
             this.setState({ notes: parsedData.notes });
         });
     }
-
+/* refresh the front end when we deleted some notes, should be passed to the child component CardNote */
+handleDelete(note) {
+  const newNotes = this.state.notes.filter(n => n != note);
+  this.setState({notes:newNotes})
+}
     goToNote(noteID){
         this.props.history.push({
             pathname: `/note/${noteID}`,
@@ -245,7 +250,7 @@ class Dashboard extends React.Component {
                 </div>
             </div>
             <div className={"bottom"}>
-              <CardNote notes={this.state.notes} history={this.props.history}/>
+              <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
             </div>
         </div>
       )
