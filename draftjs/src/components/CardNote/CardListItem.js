@@ -18,25 +18,6 @@ class CardListItem extends React.Component {
         };
     }
 
-
-    displayNoteData(note) {
-        this.setState({
-            moreNoteData:
-                <div>
-                    <div>
-                        <Icon type="book" theme="filled" style={{'color': "#466fb5"}} />
-                        {"  "}
-                        {note.category}
-                    </div>
-                    <div>
-                        {note.lastUpdated}
-                    </div>
-                </div>,
-            noteDelete: <img height="40px" width="40px" src={trash} alt={"trash"}/>
-        });
-    }
-
-
     editNote(email, noteID) {
         this.props.history.push({
             pathname: `/note/${noteID}`,
