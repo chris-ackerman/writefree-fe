@@ -94,6 +94,8 @@ class Dashboard extends React.Component {
                   <a className={'editNote'} onClick={() => this.goToNote(record._id)}>Edit | </a>
                   <Popconfirm
                       title="Are you sure you want to delete this note?"
+                      icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
+                      style={{ color: 'red' }}
                       onConfirm={() => this.deleteNote(localStorage.getItem('email'), record._id)}
                       okText="Yes"
                       cancelText="No">
@@ -161,6 +163,7 @@ class Dashboard extends React.Component {
   }
 
   switchView(child) {
+    // console.log(this.state.notes);
     if (child) {
       this.setState({ isTableView: true });
     } else {
@@ -212,7 +215,11 @@ class Dashboard extends React.Component {
             this.setState({ notes: parsedData.notes });
         });
     }
-
+/* refresh the front end when we deleted some notes, should be passed to the child component CardNote */
+handleDelete(note) {
+  const newNotes = this.state.notes.filter(n => n != note);
+  this.setState({notes:newNotes})
+}
     goToNote(noteID){
         this.props.history.push({
             pathname: `/note/${noteID}`,
@@ -235,15 +242,15 @@ class Dashboard extends React.Component {
                         style={{ width: 200, marginRight: 20 }}
                     />
                     <Dropdown overlay={this.state.menu}>
-                       <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'margin-right': '20px'}}/>
+                       <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'marginRight': '20px'}}/>
                     </Dropdown>
-                    <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
-                    <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
-                    <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
+                    <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'marginRight': '20px'}} />
+                    <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'marginRight': '20px'}}/>
+                    <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'marginRight': '20px'}}>New Document</Button>
                 </div>
             </div>
             <div className={"bottom"}>
-              <CardNote notes={this.state.notes} history={this.props.history}/>
+              <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
             </div>
         </div>
       )
