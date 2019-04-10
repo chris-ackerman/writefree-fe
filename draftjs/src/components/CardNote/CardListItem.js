@@ -4,6 +4,7 @@ import '../../css/cardnote.css';
 import trash from '../../images/trashcan.png';
 import {backendURL} from "../../dependency";
 import request from 'request';
+import("antd/dist/antd.css").then(() => import("../../css/card-list-item.css"));
 
 const { Meta } = Card;
 
@@ -73,7 +74,7 @@ class CardListItem extends React.Component {
             <div className={"card"}>
               <Card
                 //Card styling
-                style={{ backgroundColor: this.state.note.noteColor, width: 220, marginTop: 16, "borderRadius": "10px 10px 0px 0px", "boxShadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
+                style={{ backgroundColor: this.state.note.noteColor }}
                 //Card button actions
                 actions={[
                   //Edit button
@@ -87,7 +88,9 @@ class CardListItem extends React.Component {
                   okText="Yes"
                   cancelText="No">
                   <Icon type="delete" />
-                </Popconfirm>, <Icon type="ellipsis" />]}
+                  </Popconfirm>,
+                  // Options button
+                  <Icon type="ellipsis" />]}
               >
                 <Meta
                   title={this.state.noteTitle}
