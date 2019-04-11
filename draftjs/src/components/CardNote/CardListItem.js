@@ -18,36 +18,22 @@ class CardListItem extends React.Component {
         };
     }
 
-    editNote(email, noteID) {
-        this.props.history.push({
-            pathname: `/note/${noteID}`,
-            state: { noteID },
-        });
+    /*
+     * editNote
+     * Takes the noteID of a note, and deletes the note in Dashboard.js with goToNote
+     * Spring 2019
+     */
+    editNote(noteID) {
+        this.props.goToNote(noteID);
     }
 
-    /**
-    * deleteNote
-    * Takes the email of a user, and the noteID to a note, and deletes the note
-    * Spring 2019
-    **/
-    deleteNote(email, noteID) {
-        // update the front end
-        this.props.handleDelete(this.state.note);
-        const accessToken = localStorage.getItem('access_token');
-        const AuthStr = 'Bearer '.concat(accessToken);
-        const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };
-
-        const deleteNote = {
-            method: 'DELETE',
-            url: `${backendURL}/delete-note`,
-            qs: { noteID },
-            headers: headers,
-        };
-        request(deleteNote, (error, response, body) => {
-
-            const parsedData = JSON.parse(body);
-            this.setState({ notes: parsedData.notes });
-        });
+    /*
+     * deleteNote
+     * Takes the noteID of a note, and deletes the note in Dashboard.js with handleDelete
+     * Spring 2019
+     */
+    deleteNote(note) {
+      this.props.handleDelete(note);
     }
 
     render() {
@@ -59,13 +45,13 @@ class CardListItem extends React.Component {
                 //Card button actions
                 actions={[
                   //Edit button
-                  <Icon type="edit" onClick={() => this.editNote(localStorage.getItem('email'), this.state.note._id)}/>,
+                  <Icon type="edit" onClick={() => this.editNote(this.state.note._id)}/>,
                   //Delete button with Popconfirm
                   <Popconfirm
                   title="Are you sure you want to delete this note?"
                   icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
                   style={{ color: 'red' }}
-                  onConfirm={() => this.deleteNote(localStorage.getItem('email'), this.state.note._id)}
+                  onConfirm={() => this.deleteNote(this.state.note)}
                   okText="Yes"
                   cancelText="No">
                   <Icon type="delete" />
