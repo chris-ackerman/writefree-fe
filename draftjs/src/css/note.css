@@ -98,8 +98,8 @@
 .add-title{
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 8vw;
+    padding-right: 8vw;
     background-color: white;
 }
 
@@ -109,7 +109,9 @@
     border-radius: 3px !important;
     border: none;
 }
-
+.ant-btn {
+    max-width: 150px;
+}
 .enter-title-here::placeholder {
      font-family: brown-regular !important;
      font-size: 21px !important;
@@ -132,8 +134,8 @@
 }
 
 .tab-bar{
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 8vw;
+    padding-right: 8vw;
     background-color: white;
 }
 
@@ -145,7 +147,7 @@
     background-color: #466fb5;
     border-radius: 15px !important;
     color: white;
-    float: right;
+    /*float: right;*/
 }
 
 /*.enter-category-here{*/
@@ -164,17 +166,42 @@
 /*!*}*!*/
 
 .note-category-icon{
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
 .rdw-editor-toolbar{
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 8vw;
+    padding-left: 8vw;
     border: none;
     padding-top: 12.5px;
     padding-bottom: 12.5px;
 }
-
+/*.convert-to-pdf {*/
+    /*display: flex;*/
+    /*max-width: 10%;*/
+    /*width: 10px;*/
+ /*   position:fixed;
+    width: auto;
+    right:10%;
+    bottom:553px;
+    font-size: 13px;*/
+/*}*/
+/*est {
+    position: relative;
+    width: 470px;
+    padding-right: 50px;
+}*/
+.enter-title-here {
+    /*display: inline;*/
+    border:1px solid rgba(218, 223, 225, .4);
+    width: auto;
+}
+.enter-category-here {
+    /*display: inline;*/
+    border:1px solid rgba(218, 223, 225, .4);
+    width: 30vw;
+    max-width: 200px;
+}
 .tab-buttons{
     font-family: brown-bold;
     font-size: 14px;
@@ -190,7 +217,8 @@
 
 .card {
     margin: 10px;
-    max-width: 23vw;
+    max-width: 40vw;
+    display: table;
 }
 
 .DraftEditor-editorContainer{

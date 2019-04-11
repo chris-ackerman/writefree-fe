@@ -85,7 +85,6 @@ class DefaultSettings extends React.Component {
   }
 
     render() {
-        
         console.log(this.state)
         return (
             <div style={{'margin': '50px'}}>
@@ -102,7 +101,7 @@ class DefaultSettings extends React.Component {
                 <Dropdown options={this.state.fontSizes} onChange={fontSize => this.setState({ fontSize: fontSize.value.toString() })} value={this.state.fontSize} />
                 <br />
                 <a onClick={() => this.saveDefaultSettings('#F0E5EB', 'Georgia', 11)}> Or Use Recommended Settings</a><br/>
-                <Button onClick={() => this.saveDefaultSettings(this.state.noteColor, this.state.fontName, this.state.fontSize)}>Save Default Settings</Button>
+                <Button shape = "circle" type = "primary" onClick={() => this.saveDefaultSettings(this.state.noteColor, this.state.fontName, this.state.fontSize)}>Save Default</Button>
                 <br />
             </div>
         );

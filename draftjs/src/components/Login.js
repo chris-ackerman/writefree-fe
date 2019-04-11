@@ -105,7 +105,7 @@ class Login extends React.Component {
               <p className={"forgot-password"}>Forgot Password?</p>
               <Button type="primary" onClick={() => this.login(this.state.email, this.state.password)}>Sign In</Button>
               <Card style={{"background":"none", "border":"0px solid black"}}>
-                  <p>Dont have an account? <a onClick={() => this.props.history.push("/create-account")}> Sign Up </a></p>
+                  <p>Dont have an account? </p><a onClick={() => this.props.history.push("/create-account")}> Sign Up </a>
               </Card>
               {/* <GoogleLogin
                   clientId="402919311024-18n9b01dptgeg774297fp4u9ir18sb6g.apps.googleusercontent.com"
