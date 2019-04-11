@@ -95,7 +95,9 @@
 .tab-container {
 	width: 50%;
 }
-
+.ant-btn {
+	max-width:300px;
+}
 input {
 	margin-right: 20px !important;
 	border: 1px solid black;

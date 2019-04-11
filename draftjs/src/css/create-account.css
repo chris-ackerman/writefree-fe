@@ -11,6 +11,12 @@
 
 .create-account {
     text-align: center;
-    width:30vw;
+    width:80vw;
     margin: auto;
+}
+.create-account-center {
+	text-align: center;
+    width:80vw;
+    margin: auto;
+    padding: 0px;
 }

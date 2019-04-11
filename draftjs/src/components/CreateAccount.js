@@ -99,11 +99,11 @@ class CreateAccount extends React.Component {
       <LandingNavigation/>
         <Alert timeout={3000} />
         <div className={"create-account-container"} style ={ { backgroundImage: "url("+book+")" }}>
-          <div className={"create-account"}>
+          <div className={"create-account create-account-center"}>
             <p>* We will never use your email or information unless we are explicitly given permission. This account is for your use only.</p>
             <Card
           title="Create An Account"
-          style={{ "width": "400px", "background":"none", "border":"0px solid black"}}
+          style={{ "background":"none", "border":"0px solid black"}}
         >
           <Input style={{"margin":"10px auto"}} placeholder="Email" onChange={email => this.setState({ email: email.target.value })} /> <br />
           <Input style={{"margin":"10px auto"}} placeholder="Full Name" onChange={fullName => this.setState({ fullName: fullName.target.value })} /> <br />

@@ -80,7 +80,7 @@ class LandingNavigation extends React.Component {
             <div className={"top"}>
                 <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
                 <Button type="primary" className={"styledButton"} onClick={this.showModal}>
-                  Submit Feedback
+                  Feedback
                 </Button>
                 <Modal
                   title="Basic Modal"

@@ -1,8 +1,8 @@
 .top{
     display: flex;
     justify-content: space-between;
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 8vw;
+    padding-left: 8vw;
     border-bottom:0.5px solid #cccccc;
     background: white;
     height: 60px;
@@ -18,10 +18,24 @@
 .ant-modal-footer {
 	display: none !important;
 }
-
+/*.font {
+    size: 10em;
+}*/
+.navbar-nav{
+    position: fixed;
+    height: 30px;
+    padding-top: 10px;
+    margin-bottom: 50px;
+}
+.nav-item{
+    text-align: right;
+}
 .ant-btn {
     height: 30px;
-    width: 140px;
+    width: 25vw;
+    max-width: 140px;
+    min-width: 70px;
     background-color: #466fb5 !important;
     border-radius: 15px !important;
+    padding: 0px;
 }
