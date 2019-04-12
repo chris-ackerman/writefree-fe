@@ -10,7 +10,6 @@ import {Dropdown, Menu, Modal, Button} from "antd";
 import {backendURL} from "../dependency";
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 import logo from '../images/logo.png';
-
 class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
@@ -84,9 +83,7 @@ class NavigationBar extends React.Component {
         return (
             <div className={"top"}>
                 <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
-                <Button type="primary" onClick={this.showSubmitFeedbackModal}>
-                  Submit Feedback
-                </Button>
+                <Button type="primary" class = "ant-btn" style = {{maxWidth : '120px'}} size = "small" onClick={this.showSubmitFeedbackModal}>Feedback</Button>
                 <Modal
                   title="Submit Feedback"
                   visible={this.state.visible}

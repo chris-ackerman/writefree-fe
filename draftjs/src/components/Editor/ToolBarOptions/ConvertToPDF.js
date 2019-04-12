@@ -14,7 +14,10 @@ const ConvertToPDF = (props) => {
     }
     return (
         <Button
-            className={'convert-to-pdf'}
+            className={"convert-to-pdf"}
+            icon="download"
+            shape="round"
+            size="large"
             onClick={() => renderPDF(props.noteID, props.noteHTML, props.noteColor)}>
             Convert to PDF
         </Button>

@@ -88,7 +88,7 @@ class Landing extends React.Component {
 	      	<Row className={["centered-text", "full-container", "intro"]} style ={{ backgroundImage: "url("+book+")" }}>
 	      		<Col span={24}>
 		    		<p className={"header"}>A simple, free to use note taking application for people affected with dyslexia!</p>
-		    		<Tooltip title="If you don't have an account already you can sign up on the next page!"><Button style={{"height": "50px", "width": "200px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
+		    		<Tooltip title="If you don't have an account already you can sign up on the next page!"><Button style={{"height": "50px", "width": "250px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
 	      		</Col>
 	      	</Row>
 	      	<Row className={["centered-text"]}>

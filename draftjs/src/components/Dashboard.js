@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { Table, Button, Switch, Input, Menu, Dropdown, Icon, Popconfirm } from 'antd';
+import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import { withRouter } from 'react-router-dom';
 import request from 'request';
@@ -12,6 +13,15 @@ import '../css/dashboard.css';
 import { mergeSort } from '../defaults/constants';
 import {backendURL} from "../dependency";
 import ReactGA from 'react-ga';
+import { Navbar,Form,Nav,FormControl,NavDropdown } from 'react-bootstrap';
+import MediaQuery from 'react-responsive';
+import Responsive from 'react-responsive';
+import Constants from './Configuration'
+const Desktop = props => <Responsive {...props} minWidth={Constants.MIN_WIDTH_DESKTOP} />;
+const Tablet = props => <Responsive {...props} minWidth={Constants.MIN_WIDTH_TABLET} maxWidth={Constants.MAX_WIDTH_TABLET} />;
+const Mobile = props => <Responsive {...props} maxWidth={Constants.MAX_WIDTH_MOBILE} />;
+const Default = props => <Responsive {...props} minWidth={Constants.DEFAULT_WIDTH} />;
+
 
 function changeGaPage(path) {
     ReactGA.pageview(path);
@@ -42,7 +52,7 @@ class Dashboard extends React.Component {
         </Menu>
       ),
       noteColumns: [{
-        title: 'Document Name',
+        title: 'Name',
         dataIndex: 'title',
         render(text, record) {
           return {
@@ -77,6 +87,7 @@ class Dashboard extends React.Component {
       }, {
         title: 'Category',
         dataIndex: 'category',
+        width:"13vw",
         render(text, record) {
           return {
             props: {
@@ -86,12 +97,14 @@ class Dashboard extends React.Component {
           };
         },
       }, {
-        title: 'Action',
+        title: 'Act',
         className: "classNameOfColumn",
+        width:"13vw",
           render: (text, record) => {
               return (
               <div>
-                  <a className={'editNote'} onClick={() => this.goToNote(record._id)}>Edit | </a>
+                  <a className={'editNote'} onClick={() => this.goToNote(record._id)}>Edi</a>
+                  <br />
                   <Popconfirm
                       title="Are you sure you want to delete this note?"
                       icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
@@ -99,7 +112,7 @@ class Dashboard extends React.Component {
                       onConfirm={() => this.deleteNote(record._id)}
                       okText="Yes"
                       cancelText="No">
-                      <a className={'deleteNote'}>Delete</a>
+                      <a className={'deleteNote'}>Del</a>
                   </Popconfirm>
               </div>
           );
@@ -238,26 +251,76 @@ class Dashboard extends React.Component {
 
   render() {
     document.body.style.backgroundColor = "#eaeaea";
+    const menuHelper = (
+        <Menu>
+            <Menu.Item key="0">
+              <Dropdown overlay={this.state.menu}>
+                 <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'margin-right': '20px'}}/>
+              </Dropdown>
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item key="1">
+                <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
+            </Menu.Item>
+            <Menu.Item key="2">
+                <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
+            </Menu.Item>
+          </Menu> 
+    )
+    const menu = (
+      <div className={"middle"}>
+        <div className={"child"}>
+          <Desktop>
+            <Search
+              onChange={searchContent => this.searchNotes(searchContent.target.value)}
+              className = {"formatted"}
+              style={{ width: 200, marginRight: 20 }}
+            />
+            <Dropdown overlay={this.state.menu}>
+               <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'margin-right': '20px'}}/>
+            </Dropdown>
+            <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
+            <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
+            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
+          </Desktop>
+          <Tablet>
+            <Search
+              onChange={searchContent => this.searchNotes(searchContent.target.value)}
+              className = {"formatted"}
+              style={{ width: 200, marginRight: 20 }}
+            />
+            <Dropdown overlay={this.state.menu}>
+               <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'margin-right': '20px'}}/>
+            </Dropdown>
+            <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
+            <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
+            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>   
+          </Tablet>
+          <Mobile>
+            <Dropdown overlay={menuHelper} trigger={['click']}>
+              <a className="ant-dropdown-link" href="#">
+                <Icon type="down-square" style = {{fontSize : '32px'}} />
+              </a>
+            </Dropdown>
+            <Search
+                onChange={searchContent => this.searchNotes(searchContent.target.value)}
+                className = {"formatted"}
+                style={{ width: 200, marginRight: 20 }}
+              />
+          </Mobile>
+        </div>
+      </div>
+      // <Walkthrough runTutorial={this.state.credentials.runTutorial} />
+    );
     if (!this.state.isTableView) {
       return (
       <div style={{background: "#eaeaea"}}>
             <NavigationBar/>
-            <div className={"middle"}>
+            {menu}
                 <div className={"child"}>
-                    <Walkthrough runTutorial={this.state.credentials.runTutorial} />
-                    <Search
-                        onChange={searchContent => this.searchNotes(searchContent.target.value)}
-                        className = {"formatted"}
-                        style={{ width: 200, marginRight: 20 }}
-                    />
-                    <Dropdown overlay={this.state.menu}>
-                       <Icon type="filter" theme="filled" style={{'color': '#466fb5', 'marginRight': '20px'}}/>
-                    </Dropdown>
-                    <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'marginRight': '20px'}} />
-                    <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'marginRight': '20px'}}/>
-                    <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'marginRight': '20px'}}>New Document</Button>
-                </div>
-            </div>
             <div className={"bottom"}>
               <CardNote handleDelete = {note => this.handleDelete(note)} goToNote = {noteID => this.goToNote(noteID)} notes={this.state.notes} history={this.props.history}/>
             </div>
@@ -267,21 +330,7 @@ class Dashboard extends React.Component {
     return (
       <div style={{background: "#eaeaea"}}>
         <NavigationBar/>
-        <div className={"middle"}>
-            <div className={"child"}>
-            <Walkthrough runTutorial={this.state.credentials.runTutorial} />
-                  <Search
-                      onChange={searchContent => this.searchNotes(searchContent.target.value)}
-                      style={{ width: 200 }}
-                  />
-            <Dropdown overlay={this.state.menu}>
-                <Icon type="filter" theme="filled" style={{'color': '#466fb5'}}/>
-            </Dropdown>
-            <Switch checkedChildren="table" unCheckedChildren="card" defaultChecked onChange={child => this.switchView(child)} />
-            <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} />
-            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))}>New Document</Button>
-            </div>
-        </div>
+        {menu}
         <div className={"bottom"}>
             <Table
                 dataSource={this.state.notes}
@@ -290,6 +339,7 @@ class Dashboard extends React.Component {
                 columns={this.state.noteColumns}
                 pagination={{defaultPageSize: 10}}
                 rowClassName={(record) => record.noteColor}
+                size = "small"
             />
         </div>
       </div>

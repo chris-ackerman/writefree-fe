@@ -17,6 +17,11 @@ import WordSpacingOption from "./ToolBarOptions/WordSpacing";
 import LineSpacingOption from "./ToolBarOptions/LineSpacing";
 import {stateToHTML} from 'draft-js-export-html';
 import ReactGA from 'react-ga';
+import Responsive from 'react-responsive';
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
+const Default = props => <Responsive {...props} minWidth={768} />;
 
 function changeGaPage(path) {
     ReactGA.pageview(path);
@@ -32,8 +37,8 @@ class Note extends React.Component {
       noteCategory: undefined,
       noteTitle: undefined,
         noteCategoryIconColor: undefined,
-        toolsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true},
-        noteSettingsButtonHighlight: {'border': 'none', isSelected: false}
+        toolsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true, 'maxWidth' : '100px'},
+        noteSettingsButtonHighlight: {'border': 'none', isSelected: false,  'maxWidth' : '100px','color' : 'white'}
     };
     hyphenate = hyphenate.bind(this);
     changeNoteColor = changeNoteColor.bind(this);
@@ -210,10 +215,20 @@ class Note extends React.Component {
             <div style={{background: "#f5f5f5"}}>
                 <NavigationBar/>
                 <div className={"add-title"}>
+                <Default>
                     <Input className={"enter-title-here"} placeholder={"Untitled"} onKeyPress={this._handleKeyPress} value={this.state.noteTitle} onChange={noteTitle => this.setState({noteTitle: noteTitle.target.value})}></Input>
                     <Icon type="book" theme="filled" style={{'color': this.state.noteCategoryIconColor}} className={"note-category-icon"} />
                     <Input className={"enter-category-here"} placeholder={"Category"} value={this.state.noteCategory} onChange={noteCategory => this.changeNoteCategory(noteCategory.target.value)}></Input>
                     <ConvertToPDF noteID={this.state.noteID} noteHTML={stateToHTML(this.state.editorState.getCurrentContent())} noteColor={this.state.noteColor}/>
+                </Default>
+                <Mobile>
+                    <Input className={"enter-title-here"} placeholder={"Untitled"} onKeyPress={this._handleKeyPress} value={this.state.noteTitle} onChange={noteTitle => this.setState({noteTitle: noteTitle.target.value})}></Input>
+                    <div style={{'paddingTop':10}}>
+                    <Icon type="book" theme="filled" style={{'color': this.state.noteCategoryIconColor}} className={"note-category-icon"} />
+                    <Input className={"enter-category-here"} placeholder={"Category"} value={this.state.noteCategory} onChange={noteCategory => this.changeNoteCategory(noteCategory.target.value)}></Input>
+                    </div>
+                    <ConvertToPDF noteID={this.state.noteID} noteHTML={stateToHTML(this.state.editorState.getCurrentContent())} noteColor={this.state.noteColor}/>
+                </Mobile>
                 </div>
                 <div className={"tab-bar"}>
                     <Button
@@ -230,7 +245,7 @@ class Note extends React.Component {
                         onMouseEnter={() => this.showSelectedButton("noteSettings")}
                         onMouseLeave={() => this.hideSelectedButton("noteSettings")}
                         onClick={() => this.changeToolBar("noteSettings")}>
-                        Note Settings
+                        Settings
                     </Button>
                 </div>
 
