@@ -1,7 +1,11 @@
 import React from "react";
-import {Card, Icon} from "antd";
+import {Card, Icon, Popconfirm} from "antd";
 import '../../css/cardnote.css';
 import trash from '../../images/trashcan.png';
+import {backendURL} from "../../dependency";
+import request from 'request';
+
+const { Meta } = Card;
 
 class CardListItem extends React.Component {
     constructor(props) {
@@ -39,22 +43,57 @@ class CardListItem extends React.Component {
         });
     }
 
+    /**
+    * deleteNote
+    * Takes the email of a user, and the noteID to a note, and deletes the note
+    * Spring 2019
+    **/
+    deleteNote(email, noteID) {
+        // update the front end
+        this.props.handleDelete(this.state.note);
+        const accessToken = localStorage.getItem('access_token');
+        const AuthStr = 'Bearer '.concat(accessToken);
+        const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };
+
+        const deleteNote = {
+            method: 'DELETE',
+            url: `${backendURL}/delete-note`,
+            qs: { noteID },
+            headers: headers,
+        };
+        request(deleteNote, (error, response, body) => {
+
+            const parsedData = JSON.parse(body);
+            this.setState({ notes: parsedData.notes });
+        });
+    }
+
     render() {
         return (
             <div className={"card"}>
-                <Card
-                    extra={this.state.noteDelete}
-                    onClick={() => this.editNote(localStorage.getItem('email'), this.state.note._id)}
-                    onMouseEnter={() => this.displayNoteData(this.state.note)}
-                    onMouseLeave={() => this.setState({ moreNoteData: undefined, noteDelete: undefined })}
-                    style={{ backgroundColor: this.state.note.noteColor, "borderRadius": "10px", "boxShadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", "width": "220px", "height":"220px" }}
-                >
-                    {this.state.noteTitle} <br />
-                    <div className={"note-data-below"}>
-                        {this.state.moreNoteData}
-                    </div>
-
-                </Card>
+              <Card
+                //Card styling
+                style={{ backgroundColor: this.state.note.noteColor, width: 220, marginTop: 16, "borderRadius": "10px 10px 0px 0px", "boxShadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
+                //Card button actions
+                actions={[
+                  //Edit button
+                  <Icon type="edit" onClick={() => this.editNote(localStorage.getItem('email'), this.state.note._id)}/>,
+                  //Delete button with Popconfirm
+                  <Popconfirm
+                  title="Are you sure you want to delete this note?"
+                  icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
+                  style={{ color: 'red' }}
+                  onConfirm={() => this.deleteNote(localStorage.getItem('email'), this.state.note._id)}
+                  okText="Yes"
+                  cancelText="No">
+                  <Icon type="delete" />
+                </Popconfirm>, <Icon type="ellipsis" />]}
+              >
+                <Meta
+                  title={this.state.noteTitle}
+                  description={this.state.note.lastUpdated}
+                />
+              </Card>
             </div>
         );
     }

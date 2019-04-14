@@ -5,7 +5,8 @@ import '../../css/cardnote.css';
 const CardList = (props) => {
     try{
         const cardItems = props.notes.map(note => (
-            <CardListItem  key={note._id} note={note} history={props.history}/>
+            // pass the handleDelete to refesh the state of Dashborad when we delete a note
+            <CardListItem  handleDelete = {props.handleDelete} key={note._id} note={note} history={props.history}/>
         ));
         return (
             <div className="cards">
