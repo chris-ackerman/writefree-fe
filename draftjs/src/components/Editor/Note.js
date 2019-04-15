@@ -18,6 +18,8 @@ import LineSpacingOption from "./ToolBarOptions/LineSpacing";
 import {stateToHTML} from 'draft-js-export-html';
 import ReactGA from 'react-ga';
 import Responsive from 'react-responsive';
+import {backendURL} from "../../dependency";
+import axios from "axios";
 const Desktop = props => <Responsive {...props} minWidth={992} />;
 const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
@@ -32,10 +34,13 @@ class Note extends React.Component {
   constructor(props) {
     super(props);
     changeGaPage(props.location.pathname);
+    const splitValue = window.location.href.split("/")
+    const noteID = splitValue[splitValue.length - 1]
     this.state = {
       editorState: EditorState.createEmpty(),
       noteCategory: undefined,
       noteTitle: undefined,
+      noteID : noteID,
         noteCategoryIconColor: undefined,
         toolsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true, 'maxWidth' : '100px'},
         noteSettingsButtonHighlight: {'border': 'none', isSelected: false,  'maxWidth' : '100px','color' : 'white'}
@@ -51,14 +56,15 @@ class Note extends React.Component {
       if (!localStorage.getItem('id')){
           return this.props.history.push('/login')
       }
-      const splitValue = window.location.href.split("/")
-      const noteID = splitValue[splitValue.length - 1]
+      // const splitValue = window.location.href.split("/")
+      // const noteID = splitValue[splitValue.length - 1]
       const accessToken = localStorage.getItem('access_token');
       const AuthStr = 'Bearer '.concat(accessToken);
       const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };
+      const noteID = this.state.noteID
     const fetchNote = {
       method: 'GET',
-      url: `https://writefree-backend.herokuapp.com/fetch-note/${String(noteID)}`,
+      url: `${backendURL}/fetch-note/${String(this.state.noteID)}`,
       qs: { noteID },
       headers: headers,
     };
@@ -67,6 +73,7 @@ class Note extends React.Component {
             return this.props.history.push('/error404')
         }
         var parsedData = JSON.parse(body);
+        // console.log("settings : " + parsedData.noteSettings);
         if (parsedData.noteSettings){
             setDocumentWordSpacing(parsedData.wordSpacing);
             setDocumentLineSpacing(parsedData.lineSpacing);
@@ -80,6 +87,11 @@ class Note extends React.Component {
                 isHyphenated: parsedData.isHyphenated
             });
         }
+        // this.setState({
+        //     noteID : noteID
+        // });
+        console.log("id : " + this.state.noteID);
+
         if (parsedData.title){
             let contentState = parsedData.content;
             this.setState({
@@ -112,7 +124,7 @@ class Note extends React.Component {
         const obj = {title, category, noteID, noteContent: convertedNoteContent}
         var saveNote = {
             method: 'POST',
-            url: 'https://writefree-backend.herokuapp.com/save-note',
+            url: backendURL + '/save-note',
             body: JSON.stringify(obj),
             headers: headers,
         };

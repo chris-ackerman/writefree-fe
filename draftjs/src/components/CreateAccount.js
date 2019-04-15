@@ -12,6 +12,7 @@ import { handleAccountError } from '../defaults/constants';
 import book from '../images/book_landing.png';
 import LandingNavigation from './LandingNavigation';
 import ReactGA from 'react-ga';
+import {backendURL} from "../dependency";
 
 function changeGaPage(path) {
     ReactGA.pageview(path);
@@ -34,7 +35,7 @@ class CreateAccount extends React.Component {
       }
     const postCreateAnAccountInformation = {
       method: 'POST',
-      url: 'https://writefree-backend.herokuapp.com/create-account',
+      url: backendURL + '/create-account',
       qs: { email, fullName, password },
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };
@@ -51,7 +52,7 @@ class CreateAccount extends React.Component {
             handleAccountError(err);
         }
         else {
-            console.log(body)
+            console.log(body);
             const parsedData = JSON.parse(body);
             localStorage.setItem('email', email);
             localStorage.setItem('access_token', parsedData.access_token);

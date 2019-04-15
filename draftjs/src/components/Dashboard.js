@@ -311,11 +311,12 @@ handleDelete(note) {
       <div style={{background: "#eaeaea"}}>
             <NavigationBar/>
             {menu}
-                <div className={"child"}>
-            <div className={"bottom"}>
-              <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
+            <div className={"child"}>
+              <div className={"bottom"}>
+                <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
+              </div>
             </div>
-        </div>
+      </div>
       )
     }
     return (
