@@ -6,7 +6,7 @@ const CardList = (props) => {
     try{
         const cardItems = props.notes.map(note => (
             // pass the handleDelete to refesh the state of Dashborad when we delete a note
-            <CardListItem  handleDelete = {props.handleDelete} key={note._id} note={note} history={props.history}/>
+            <CardListItem goToNote = {props.goToNote} handleDelete = {props.handleDelete} key={note._id} note={note} history={props.history}/>
         ));
         return (
             <div className="cards">
