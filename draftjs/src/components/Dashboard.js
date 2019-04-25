@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
                       title="Are you sure you want to delete this note?"
                       icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
                       style={{ color: 'red' }}
-                      onConfirm={() => this.deleteNote(record._id)}
+                      onConfirm={() => this.deleteNote(localStorage.getItem('email'), record._id)}
                       okText="Yes"
                       cancelText="No">
                       <a className={'deleteNote'}>Del</a>
@@ -210,11 +210,8 @@ class Dashboard extends React.Component {
         }
       });
   }
-    /*
-     * Reomved the email parameter because it was not ever used
-     * Spring 2019
-     */
-    deleteNote(noteID) {
+
+    deleteNote(email, noteID) {
         const accessToken = localStorage.getItem('access_token');
         const AuthStr = 'Bearer '.concat(accessToken);
         const headers = { Authorization: AuthStr, 'Content-Type': 'application/x-www-form-urlencoded' };
@@ -231,18 +228,12 @@ class Dashboard extends React.Component {
             this.setState({ notes: parsedData.notes });
         });
     }
-
-    /*
-    * refresh the front end when we deleted some notes, should be passed to the child component CardNote
-    * Spring 2019
-    */
-    handleDelete(note) {
-      this.deleteNote(note._id);
-      const newNotes = this.state.notes.filter(n => n != note);
-      this.setState({notes:newNotes})
-    }
-
-    goToNote(noteID) {
+/* refresh the front end when we deleted some notes, should be passed to the child component CardNote */
+handleDelete(note) {
+  const newNotes = this.state.notes.filter(n => n != note);
+  this.setState({notes:newNotes})
+}
+    goToNote(noteID){
         this.props.history.push({
             pathname: `/note/${noteID}`,
             state: { noteID },
@@ -320,9 +311,10 @@ class Dashboard extends React.Component {
       <div style={{background: "#eaeaea"}}>
             <NavigationBar/>
             {menu}
-                <div className={"child"}>
-            <div className={"bottom"}>
-              <CardNote handleDelete = {note => this.handleDelete(note)} goToNote = {noteID => this.goToNote(noteID)} notes={this.state.notes} history={this.props.history}/>
+            <div className={"child"}>
+              <div className={"bottom"}>
+                <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
+              </div>
             </div>
             </div>
         </div>
