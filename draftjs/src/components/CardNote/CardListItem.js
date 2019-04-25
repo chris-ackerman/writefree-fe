@@ -1,9 +1,7 @@
 import React from "react";
 import {Card, Icon, Popconfirm} from "antd";
 import '../../css/cardnote.css';
-import trash from '../../images/trashcan.png';
-import {backendURL} from "../../dependency";
-import request from 'request';
+import("antd/dist/antd.css").then(() => import("../../css/card-list-item.css"));
 
 const { Meta } = Card;
 

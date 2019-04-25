@@ -259,7 +259,7 @@ handleDelete(note) {
             <Menu.Item key="3">
                 <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
             </Menu.Item>
-          </Menu> 
+          </Menu>
     )
     const menu = (
       <div className={"middle"}>
@@ -288,7 +288,7 @@ handleDelete(note) {
             </Dropdown>
             <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
             <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
-            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>   
+            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
           </Tablet>
           <Mobile>
             <Dropdown overlay={menuHelper} trigger={['click']}>
@@ -316,7 +316,8 @@ handleDelete(note) {
                 <CardNote handleDelete = {note => this.handleDelete(note)} notes={this.state.notes} history={this.props.history}/>
               </div>
             </div>
-      </div>
+            </div>
+        </div>
       )
     }
     return (
