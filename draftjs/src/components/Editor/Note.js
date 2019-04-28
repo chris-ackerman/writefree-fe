@@ -143,15 +143,15 @@ class Note extends React.Component {
     changeToolBar(key){
         if (key === "tools"){
             this.setState({
-                toolsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true},
-                noteSettingsButtonHighlight: {'border': 'none', isSelected: false},
+                toolsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true, 'maxWidth' : '100px'},
+                noteSettingsButtonHighlight: {'border': 'none', isSelected: false, 'maxWidth' : '100px'},
                 'toolbar': {}, 'toolbarCustomButtons': []
             })
         }
         else if (key === "noteSettings") {
             this.setState({
-                noteSettingsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true},
-                toolsButtonHighlight: {'border': 'none', isSelected: false},
+                noteSettingsButtonHighlight: {'backgroundColor': '#466fb5', 'color': 'white', isSelected: true, 'maxWidth' : '100px'},
+                toolsButtonHighlight: {'border': 'none', isSelected: false, 'maxWidth' : '100px'},
                 'toolbar': {'options': []},
                 'toolbarCustomButtons': [
                     <HyphenationOption hyphenate={hyphenate} noteID={this.state.noteID} isHyphenated={this.state.isHyphenated}/>,
@@ -180,12 +180,12 @@ class Note extends React.Component {
     showSelectedButton(buttonType){
       if (buttonType === "tools"){
           if (!this.state.toolsButtonHighlight.isSelected){
-              this.setState({'toolsButtonHighlight': {'backgroundColor': '#466fb5', 'color': 'white', isSelected: false}})
+              this.setState({'toolsButtonHighlight': {'backgroundColor': '#466fb5', 'color': 'white', isSelected: false, 'maxWidth' : '100px'}})
           }
       }
         if (buttonType === "noteSettings"){
             if (!this.state.noteSettingsButtonHighlight.isSelected){
-                this.setState({'noteSettingsButtonHighlight': {'backgroundColor': '#466fb5', 'color': 'white', isSelected: false}})
+                this.setState({'noteSettingsButtonHighlight': {'backgroundColor': '#466fb5', 'color': 'white', isSelected: false, 'maxWidth' : '100px'}})
             }
         }
 
@@ -194,12 +194,12 @@ class Note extends React.Component {
     hideSelectedButton(buttonType){
         if (buttonType === "tools"){
             if (!this.state.toolsButtonHighlight.isSelected){
-                this.setState({'toolsButtonHighlight': {'border': 'none', isSelected: false}})
+                this.setState({'toolsButtonHighlight': {'border': 'none', isSelected: false, 'maxWidth' : '100px'}})
             }
         }
         if (buttonType === "noteSettings"){
             if (!this.state.noteSettingsButtonHighlight.isSelected){
-                this.setState({'noteSettingsButtonHighlight': {'border': 'none', isSelected: false}})
+                this.setState({'noteSettingsButtonHighlight': {'border': 'none', isSelected: false, 'maxWidth' : '100px'}})
             }
 
         }
