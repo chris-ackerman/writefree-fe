@@ -20,8 +20,8 @@
     "hypher": "^0.2.5",
     "i": "^0.3.6",
     "nan": "^2.11.1",
-    "npm": "^6.4.1",
-    "pdfmake": "^0.1.38",
+    "npm": "^6.9.0",
+    "pdfmake": "^0.1.54",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-addons-css-transition-group": "^15.6.2",
@@ -73,6 +73,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "react-to-print": "^2.1.1"
   }
 }
