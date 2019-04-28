@@ -70,7 +70,12 @@
 .landing-card div {
 	width: 100%;
 }
-
+.ant-col-12 {
+	width: 100%;
+}
+.ant-col-offset-6 {
+	margin: auto;
+}
 .ant-carousel .slick-slide {
   text-align: center;
   overflow: hidden;

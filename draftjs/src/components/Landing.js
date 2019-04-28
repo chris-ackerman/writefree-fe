@@ -58,7 +58,7 @@ class Landing extends React.Component {
 
 		const features = [
 			'Filtered notes',
-			'Simple categorization',
+			'categorization',
 			'Text-to-speech',
 			'Convert-to-pdf',
 			'Word-hyphenation',
@@ -88,7 +88,7 @@ class Landing extends React.Component {
 	      	<Row className={["centered-text", "full-container", "intro"]} style ={{ backgroundImage: "url("+book+")" }}>
 	      		<Col span={24}>
 		    		<p className={"header"}>A simple, free to use note taking application for people affected with dyslexia!</p>
-		    		<Tooltip title="If you don't have an account already you can sign up on the next page!"><Button style={{"height": "50px", "width": "250px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
+		    		<Tooltip title="If you don't have an account already you can sign up on the next page!"><Button style={{"height": "50px", "width": "230px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
 	      		</Col>
 	      	</Row>
 	      	<Row className={["centered-text"]}>
@@ -97,8 +97,8 @@ class Landing extends React.Component {
 		    			<h3>This application is designed to continually innovate, constantly adding new features and 
 		    			functionalities that make taking notes easier for people with dyslexia. We have aggregated <i>simple</i> and 
 		    			<i> helpful</i> features in an effort to make an accessible and impactful application</h3>
-		    			<Col span={12} style={{"margin-bottom":"20px"}}>
-		    				<Tooltip title="We will never use your email or information unless we are explicitly given permission. This account is for your use only."><Button style={{"height": "50px", "width": "200px", "font-size": "18px"}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
+		    			<Col span={12} style={{"margin-bottom":"auto","display" : "flex", "justify-content": "center", "align-items": "center"}}>
+		    				<Tooltip title="We will never use your email or information unless we are explicitly given permission. This account is for your use only."><Button style={{"height": "45px", "width": "160px", "font-size": "18px", "flex-shrink": 0}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
 		    			</Col>
 		    			<p>* We are currently at a beta version of the app, meaning we are testing out the features and functionality so 
 		    			that our final product will be as helpful and stable as possible!</p>
@@ -145,9 +145,7 @@ class Landing extends React.Component {
 		    		<h1 style={{"text-align":"center"}}>Feature Examples</h1>
 		    		<Tabs tabPosition={top}>
 						<TabPane tab="Word Spacing" key="1">
-							<div>
-						    	<img src={word_spacing}/>
-						    </div>
+						    	<img src={word_spacing} style={{"width":"80%", "height":"90%"}}/>
 						</TabPane>
 						<TabPane tab="Line Spacing" key="2">
 							<div>
