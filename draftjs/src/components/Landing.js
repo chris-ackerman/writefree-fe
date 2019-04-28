@@ -145,17 +145,13 @@ class Landing extends React.Component {
 		    		<h1 style={{"text-align":"center"}}>Feature Examples</h1>
 		    		<Tabs tabPosition={top}>
 						<TabPane tab="Word Spacing" key="1">
-						    	<img src={word_spacing} style={{"width":"80%", "height":"90%"}}/>
+						    <img src={word_spacing} style={{"width":"80%", "height":"90%"}}/>
 						</TabPane>
 						<TabPane tab="Line Spacing" key="2">
-							<div>
-						    	<img src={line_spacing}/>
-						    </div>
+						    <img src={line_spacing} style={{"width":"80%", "height":"90%"}}/>
 						</TabPane>
 						<TabPane tab="Change Color" key="3">
-							<div>
-						    	<img src={change_color}/>
-						    </div>
+						    <img src={change_color} style={{"width":"80%", "height":"90%"}}/>
 						</TabPane>
 		        	</Tabs>
 		    	</Col>
