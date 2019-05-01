@@ -79,7 +79,7 @@ class LandingNavigation extends React.Component {
         return (
             <div className={"top"}>
                 <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
-                <Button type="primary" className={"styledButton"} onClick={this.showModal}>
+                <Button type="primary" className={"styledButton"} onClick={this.showModal} style={{"maxWidth" : "120px"}}>
                   Feedback
                 </Button>
                 <Modal

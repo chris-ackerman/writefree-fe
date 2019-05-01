@@ -98,7 +98,7 @@ class Landing extends React.Component {
 		    			functionalities that make taking notes easier for people with dyslexia. We have aggregated <i>simple</i> and 
 		    			<i> helpful</i> features in an effort to make an accessible and impactful application</h3>
 		    			<Col span={12} style={{"margin-bottom":"auto","display" : "flex", "justify-content": "center", "align-items": "center"}}>
-		    				<Tooltip title="We will never use your email or information unless we are explicitly given permission. This account is for your use only."><Button style={{"height": "45px", "width": "160px", "font-size": "18px", "flex-shrink": 0}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
+		    				<Tooltip title="We will never use your email or information unless we are explicitly given permission. This account is for your use only."><Button style={{"height": "45px", "width": "180px", "font-size": "18px", "flex-shrink": 0}} onClick={() => this.createAccount()} type="primary">Create an account!</Button></Tooltip>
 		    			</Col>
 		    			<p>* We are currently at a beta version of the app, meaning we are testing out the features and functionality so 
 		    			that our final product will be as helpful and stable as possible!</p>
@@ -168,7 +168,7 @@ class Landing extends React.Component {
 		    <Row className={["centered-text"]}>
 		    	<Col span={24}>
 		    		<Col span={12} offset={6}>
-		    			<Card className={["styled-card", "shadow"]} style={{"margin-top":"20px"}}>
+		    			<Card className={["styled-card", "shadow"]} style={{"margin-top":"20px", "width" : "90%"}}>
 							<p>WriteFree is a not for profit, open-source application! Help contribute to our cause</p>
 						</Card>
 		    		</Col>

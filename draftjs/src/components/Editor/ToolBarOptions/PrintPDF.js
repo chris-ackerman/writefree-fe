@@ -1,6 +1,5 @@
 import {Button} from "antd";
 import React from "react";
-import ReactToPrint from 'react-to-print';
 import axios from "axios";
 import {backendURL} from "../../../dependency";
 
