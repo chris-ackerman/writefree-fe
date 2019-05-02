@@ -102,16 +102,13 @@ class CreateAccount extends React.Component {
         <div className={"create-account-container"} style ={ { backgroundImage: "url("+book+")" }}>
           <div className={"create-account create-account-center"}>
             <p>* We will never use your email or information unless we are explicitly given permission. This account is for your use only.</p>
-            <Card
-          title="Create An Account"
-          style={{ "background":"none", "border":"0px solid black"}}
-        >
+            <Card title="Create An Account" style={{ "background":"none", "border":"0px solid black"}}>
           <Input style={{"margin":"10px auto"}} placeholder="Email" onChange={email => this.setState({ email: email.target.value })} /> <br />
           <Input style={{"margin":"10px auto"}} placeholder="Full Name" onChange={fullName => this.setState({ fullName: fullName.target.value })} /> <br />
           <Input style={{"margin":"10px auto"}} placeholder="Password" type="password" onChange={password => this.setState({ password: password.target.value })} /> <br />
-          <Button type="primary" onClick={() => this.createAccount(this.state.email, this.state.fullName, this.state.password)}>Sign Up</Button><br />
-          <Card style={{"background":"none", "border":"0px solid black"}}>
-            <p>Have an account? <a onClick={() => this.props.history.push("/login")}> Login </a> </p>
+          <Button type="primary" style={{"height": "45px", "width": "160px", "font-size": "18px", "flex-shrink": 0}} onClick={() => this.createAccount(this.state.email, this.state.fullName, this.state.password)}>Sign Up</Button><br />
+          <Card style={{"background":"none", "border":"0px solid black", "width": "30vw", "maxWidth":"200px", "minWidth":"140px"}}>
+            <p>Have an account? <br/> <a onClick={() => this.props.history.push("/login")}> Login </a> </p>
           </Card>
           {/* <GoogleLogin
             clientId="402919311024-18n9b01dptgeg774297fp4u9ir18sb6g.apps.googleusercontent.com"

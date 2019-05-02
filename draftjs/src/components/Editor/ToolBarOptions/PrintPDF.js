@@ -1,5 +1,6 @@
 import {Button} from "antd";
 import React from "react";
+import {backendURL} from "../../../dependency";
 
 const PrintPDF = (props) => {
     function printPDF(noteID, noteHTML, noteColor) {

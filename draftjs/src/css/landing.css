@@ -70,7 +70,12 @@
 .landing-card div {
 	width: 100%;
 }
-
+.ant-col-12 {
+	width: 100%;
+}
+.ant-col-offset-6 {
+	margin: auto;
+}
 .ant-carousel .slick-slide {
   text-align: center;
   overflow: hidden;
@@ -103,7 +108,6 @@ input {
 	border: 1px solid black;
 	border-radius: 5px;
 }
-
 button {
 	color: white;
 	background-color: #466fb5;

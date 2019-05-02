@@ -83,7 +83,7 @@ class NavigationBar extends React.Component {
         return (
             <div className={"top"}>
                 <img onClick={() => this.goToDashBoard()} src={logo} height="20px"/>
-                <Button type="primary" class = "ant-btn" style = {{maxWidth : '120px'}} size = "small" onClick={this.showSubmitFeedbackModal}>Feedback</Button>
+                <Button type="primary" class = "ant-btn" size = "small" onClick={this.showSubmitFeedbackModal} style = {{"maxWidth" : "80px"}}>Feedback</Button>
                 <Modal
                   title="Submit Feedback"
                   visible={this.state.visible}
