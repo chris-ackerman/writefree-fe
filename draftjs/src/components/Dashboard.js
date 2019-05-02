@@ -281,7 +281,7 @@ handleDelete(note) {
             <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
             <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
             <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
-            <Button type="primary" className="importNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
+            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
           </Desktop>
           <Tablet>
             <Search
@@ -295,7 +295,7 @@ handleDelete(note) {
             <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
             <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
             <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
-            <Button type="primary" className="importNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
+            <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
           </Tablet>
           <Mobile>
             <Dropdown overlay={menuHelper} trigger={['click']}>
