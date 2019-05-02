@@ -38,7 +38,7 @@ class CardListItem extends React.Component {
             <div className={"card"}>
               <Card
                 //Card styling
-                style={{ backgroundColor: this.state.note.noteColor }}
+                style={{ backgroundColor: this.state.note.noteColor, 'width' : '220px' }}
                 //Card button actions
                 actions={[
                   //Edit button
