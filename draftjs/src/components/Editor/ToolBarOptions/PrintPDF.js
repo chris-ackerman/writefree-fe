@@ -2,6 +2,11 @@ import {Button} from "antd";
 import React from "react";
 import {backendURL} from "../../../dependency";
 
+    /**
+    * Print Note
+    * Spring 2019
+    **/
+    
 const PrintPDF = (props) => {
     function printPDF(noteID, noteHTML, noteColor) {
 
@@ -11,7 +16,6 @@ const PrintPDF = (props) => {
         pri.document.open();
         pri.document.write(parsedHTML);
         pri.document.body.style.backgroundColor = noteColor;
-        //pri.document.body.style.-webkit-print-color-adjust: "exact";
         pri.document.close();
         pri.focus();
         pri.print();
