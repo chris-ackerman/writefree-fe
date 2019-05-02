@@ -33,6 +33,15 @@ class CardListItem extends React.Component {
       this.props.handleDelete(note);
     }
 
+    /**
+    * ConvertNoteToPDF
+    * Takes the noteID to a the PDF version of the note 
+    * Spring 2019
+    **/
+    // pdfNote(note) {
+    //   this.props.goToNote(noteID);
+    // }
+
     render() {
         return (
             <div className={"card"}>
@@ -52,7 +61,10 @@ class CardListItem extends React.Component {
                   okText="Yes"
                   cancelText="No">
                   <Icon type="delete" />
-                </Popconfirm>, <Icon type="ellipsis" />]}
+                 </Popconfirm>, 
+                  //Export Note to PDF 
+                 <Icon type="download" onClick={() => this.pdfNote(this.state.note._id)}/>,
+                 <Icon type="ellipsis"/>]}
               >
                 <Meta
                   title={this.state.noteTitle}

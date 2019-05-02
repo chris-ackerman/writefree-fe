@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { Table, Button, Switch, Input, Menu, Dropdown, Icon, Popconfirm } from 'antd';
+import { Table, Button, Switch, Input, Menu, Dropdown, Icon, Popconfirm,Upload, message } from 'antd';
 import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import { withRouter } from 'react-router-dom';
@@ -240,6 +240,7 @@ handleDelete(note) {
         });
     }
 
+
   render() {
     document.body.style.backgroundColor = "#eaeaea";
     const menuHelper = (
@@ -259,8 +260,12 @@ handleDelete(note) {
             <Menu.Item key="3">
                 <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
             </Menu.Item>
+            <Menu.Item key='4'>
+                <Button type="primary" className="importNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > Click to Upload </Button>
+            </Menu.Item>
           </Menu>
     )
+
     const menu = (
       <div className={"middle"}>
         <div className={"child"}>
@@ -276,6 +281,7 @@ handleDelete(note) {
             <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
             <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
             <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
+            <Button type="primary" className="importNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
           </Desktop>
           <Tablet>
             <Search
@@ -289,6 +295,7 @@ handleDelete(note) {
             <Switch checkedChildren="table" unCheckedChildren="card" onChange={child => this.switchView(child)} style={{'margin-right': '20px'}} />
             <Icon type="setting" theme="filled" onClick={() => this.props.history.push('/default-settings')} style={{'margin-right': '20px'}}/>
             <Button type="primary" className="generateNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}}>New Document</Button>
+            <Button type="primary" className="importNewNote" onClick={() => this.createNote(localStorage.getItem('email'))} style={{'margin-right': '20px'}} > <Icon type="upload"/> Click to Upload </Button>
           </Tablet>
           <Mobile>
             <Dropdown overlay={menuHelper} trigger={['click']}>

@@ -1,8 +1,8 @@
 import {Button} from "antd";
 import React from "react";
 
-const PrintPDF = (props) => {
-    function printPDF(noteID, noteHTML, noteColor) {
+const Import = (props) => {
+    function Import(noteID, noteHTML, noteColor) {
 
         const parsedHTML = "<body>" + noteHTML + "</body>"
 
@@ -10,7 +10,6 @@ const PrintPDF = (props) => {
         pri.document.open();
         pri.document.write(parsedHTML);
         pri.document.body.style.backgroundColor = noteColor;
-        //pri.document.body.style.-webkit-print-color-adjust: "exact";
         pri.document.close();
         pri.focus();
         pri.print();
@@ -18,14 +17,15 @@ const PrintPDF = (props) => {
     }
     return (
         <Button
-            className={"convert-to-pdf"}
-            icon="download"
+            className={"import-doc"}
+            icon="upload"
             shape="round"
             size="large"
-            onClick={() => printPDF(props.noteID, props.noteHTML, props.noteColor)}>
-            Print 
+            onClick={() => Import(props.noteID, props.noteHTML, props.noteColor)}>
+            Import 
         </Button>
+
     );
 }
 
-export default PrintPDF;
+export default Import;
