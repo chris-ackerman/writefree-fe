@@ -1,17 +1,17 @@
 import {Button} from "antd";
 import React from "react";
-import axios from "axios";
 import {backendURL} from "../../../dependency";
 
 const PrintPDF = (props) => {
     function printPDF(noteID, noteHTML, noteColor) {
 
-        const parsedHTML = `<body style="background-color: ${noteColor};" >` + noteHTML + "</body>"
+        const parsedHTML = "<body>" + noteHTML + "</body>"
 
         var pri = document.getElementById("ifmcontentstoprint").contentWindow;
         pri.document.open();
-        pri.document.bgColor = noteColor;
         pri.document.write(parsedHTML);
+        pri.document.body.style.backgroundColor = noteColor;
+        //pri.document.body.style.-webkit-print-color-adjust: "exact";
         pri.document.close();
         pri.focus();
         pri.print();
