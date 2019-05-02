@@ -17,7 +17,7 @@ const Import = (props) => {
     }
     return (
         <Button
-            className={"import-doc"}
+            className={"import-doc", "convert-to-pdf"}
             icon="upload"
             shape="round"
             size="large"
