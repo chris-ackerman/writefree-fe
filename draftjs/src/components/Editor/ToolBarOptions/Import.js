@@ -4,20 +4,14 @@ import React from "react";
 const Import = (props) => {
     function Import(noteID, noteHTML, noteColor) {
 
-        const parsedHTML = "<body>" + noteHTML + "</body>"
+        //TODO: Implement import function --> https://ant.design/components/upload/ 
 
-        var pri = document.getElementById("ifmcontentstoprint").contentWindow;
-        pri.document.open();
-        pri.document.write(parsedHTML);
-        pri.document.body.style.backgroundColor = noteColor;
-        pri.document.close();
-        pri.focus();
-        pri.print();
+        const parsedHTML = "<body>" + noteHTML + "</body>"
 
     }
     return (
         <Button
-            className={"import-doc", "convert-to-pdf"}
+            className={"import-doc"}
             icon="upload"
             shape="round"
             size="large"

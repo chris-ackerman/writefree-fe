@@ -3,6 +3,10 @@ import React from "react";
 import axios from "axios";
 import {backendURL} from "../../../dependency";
 
+/**
+* ConvertNoteToPDF
+* Spring 2019
+**/
 const ConvertToPDF = (props) => {
     function renderPDF(noteID, noteHTML, noteColor) {
         const parsedHTML = `<body style="background-color: ${noteColor};" >` + noteHTML + "</body>"

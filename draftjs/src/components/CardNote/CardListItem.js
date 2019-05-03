@@ -1,6 +1,8 @@
 import React from "react";
 import {Card, Icon, Popconfirm} from "antd";
 import '../../css/cardnote.css';
+import {backendURL} from "../../dependency";
+import axios from "axios";
 import("antd/dist/antd.css").then(() => import("../../css/card-list-item.css"));
 
 const { Meta } = Card;
@@ -38,9 +40,14 @@ class CardListItem extends React.Component {
     * Takes the noteID to a the PDF version of the note 
     * Spring 2019
     **/
-    // pdfNote(note) {
-    //   this.props.goToNote(noteID);
-    // }
+    renderPDF(noteID, noteHTML, noteColor) {
+        
+        const parsedHTML = `<body style="background-color: ${noteColor};" >` + noteHTML + "</body>"
+
+        document.body.style.backgroundColor = "#f5f5f5"
+        axios.get(`${backendURL}/renderPDF`, { headers: { 'Content-Type': 'application/x-www-form-urlencoded'}, params: { 'noteID' : noteID, 'noteHTML' : parsedHTML } }).then((response) => {
+            window.open(response.request.responseURL)
+        });}
 
     render() {
         return (
@@ -63,7 +70,7 @@ class CardListItem extends React.Component {
                   <Icon type="delete" />
                  </Popconfirm>, 
                   //Export Note to PDF 
-                 <Icon type="download" onClick={() => this.pdfNote(this.state.note._id)}/>,
+                 <Icon type="download" onClick={() => this.renderPDF(this.state.note._id,this.state.note.noteHTML,this.state.note.noteColor) } />,
                  <Icon type="ellipsis"/>]}
               >
                 <Meta
